@@ -42,20 +42,22 @@ public:
     virtual void                play();
     virtual void                stop();     
     
-    virtual bool                isFrameNew();
+    virtual bool                isFrameNew() const;
     virtual unsigned char *     getPixels() {return NULL;};
     virtual ofPixelsRef         getPixelsRef();
+    const ofPixels&     getPixelsRef() const;
+
     virtual ofTexture *         getTexture();
     virtual ofShader *          getShader();
-    virtual float               getWidth();
-    virtual float               getHeight();
+    virtual float               getWidth() const;
+    virtual float               getHeight() const;
     
-    virtual bool                isPaused();
-    virtual bool                isLoaded();
-    virtual bool                isPlaying();
+    virtual bool                isPaused() const;
+    virtual bool                isLoaded() const;
+    virtual bool                isPlaying() const;
     
     virtual bool                setPixelFormat(ofPixelFormat pixelFormat) {return false;};
-    virtual ofPixelFormat       getPixelFormat();
+    virtual ofPixelFormat       getPixelFormat() const;
     virtual string              getMoviePath();
     virtual bool				getHapAvailable();
 	

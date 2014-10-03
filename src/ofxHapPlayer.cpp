@@ -615,12 +615,12 @@ void ofxHapPlayer::setPaused(bool pause)
     _paused = pause;
 }
 
-bool ofxHapPlayer::isFrameNew()
+bool ofxHapPlayer::isFrameNew() const
 {
     return _wantsUpdate;
 }
 
-float ofxHapPlayer::getWidth()
+float ofxHapPlayer::getWidth() const
 {
     if (_gWorld && _movie)
     {
@@ -630,7 +630,7 @@ float ofxHapPlayer::getWidth()
     return 0.0;
 }
 
-float ofxHapPlayer::getHeight()
+float ofxHapPlayer::getHeight() const
 {
     if (_gWorld && _movie)
     {
@@ -640,18 +640,18 @@ float ofxHapPlayer::getHeight()
     return 0.0;
 }
 
-bool ofxHapPlayer::isPaused()
+bool ofxHapPlayer::isPaused() const
 {
     return _paused;
 }
 
-bool ofxHapPlayer::isLoaded()
+bool ofxHapPlayer::isLoaded() const
 {
     if (_movie) return true;
     else return false;
 }
 
-bool ofxHapPlayer::isPlaying()
+bool ofxHapPlayer::isPlaying() const
 {
     return _playing;
 }
@@ -662,7 +662,12 @@ ofPixelsRef ofxHapPlayer::getPixelsRef()
     return ref;
 }
 
-ofPixelFormat ofxHapPlayer::getPixelFormat()
+const ofPixels& ofxHapPlayer::getPixelsRef() const{
+    static ofPixels ref;
+    return ref;
+}
+
+ofPixelFormat ofxHapPlayer::getPixelFormat() const
 {
     return OF_PIXELS_BGRA;
 }
